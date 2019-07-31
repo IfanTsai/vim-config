@@ -56,6 +56,8 @@ set nobackup            " 不创建备份文件
 set noswapfile          " 不生成临时文件
 set foldmethod=manual   " 设置手动折叠
 
+set clipboard=unnamed   " 使用系统剪切板
+
 " 保留上次折叠  设置后可能出现自动缩进8个空格的问题
 "au BufWinLeave * silent mkview
 "au BufWinEnter * silent loadview

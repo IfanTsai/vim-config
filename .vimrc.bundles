@@ -98,6 +98,9 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 Plugin 'mbbill/echofunc'
 
+" Underlines the word under the cursor
+Plugin 'itchyny/vim-cursorword'
+
 "----------------------------------------------------------------------
 
 call vundle#end()            " required
