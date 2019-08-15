@@ -35,6 +35,7 @@ set t_Co=256            " 设置256色
 set nu                  " 显示行号
 set showcmd             " 显示输入命令
 set cursorline          " 显示当前行
+set cursorcolumn        " 显示当前列
 set encoding=utf-8      " 使用utf-8编码
 set autoindent          " 设置自动缩进
 set smartindent         " 设置智能缩进
