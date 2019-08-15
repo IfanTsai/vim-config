@@ -69,3 +69,28 @@ au BufNewFile,BufRead *.S set filetype=masm
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+" cscope
+""""""""""""""""""""""""""""""""""""""""""""
+" 安装: sudo apt install cscope
+" 建立数据库: cscope -Rbq
+if has("cscope")
+  set csprg=/usr/bin/cscope
+  set csto=1
+  set cst
+  set nocsverb
+  " add any database in current directory
+  if filereadable("cscope.out")
+    cs add cscope.out
+  endif
+  set csverb
+endif
+
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+" F5: 查找C语言符号  F6: 查找字符串 F7: 查找函数被调用
+nmap <silent> <F5> :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <silent> <F6> :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <silent> <F7> :cs find c <C-R>=expand("<cword>")<CR><CR>
+""""""""""""""""""""""""""""""""""""""""""""
+
