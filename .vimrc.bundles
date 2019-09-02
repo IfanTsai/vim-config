@@ -59,7 +59,7 @@ Plugin 'scrooloose/nerdtree'
 let NERDChristmasTree = 0
 let NERDTreeWinSize = 25
 let NERDTreeChDirMode = 2
-let NERDTreeIgnore = ['\~$', '\.pyc$', '\.swp$', '\.o$']
+let NERDTreeIgnore = ['\~$', '\.pyc$', '\.swp$', '\.o$', 'tags', 'cscope*']
 let NERDTreeShowBookmarks = 1
 let NERDTreeWinPos = "left"
 " Automatically open a NERDTree if no files where specified
@@ -114,42 +114,44 @@ map <F4> :Tagbar<CR>
 "let g:tagbar_autopreview = 1
 
 " 动态语法检测
-Plugin 'w0rp/ale'
+"Plugin 'w0rp/ale'
 
 " 始终开启标志列
-let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 1
+"let g:ale_sign_column_always = 1
+"let g:ale_set_highlights = 1
 " 自定义error和warning图标
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚡'
-let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
+"let g:ale_sign_error = '✗'
+"let g:ale_sign_warning = '⚡'
+"let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+"let g:ale_echo_msg_error_str = 'E'
+"let g:ale_echo_msg_warning_str = 'W'
 "let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-let g:ale_c_cppcheck_options = ''
-let g:ale_cpp_cppcheck_options = ''
+"let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+"let g:ale_lint_on_text_changed = 'normal'
+"let g:ale_lint_on_insert_leave = 1
+"let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+"let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+"let g:ale_c_cppcheck_options = ''
+"let g:ale_cpp_cppcheck_options = ''
+" 打开文件时不进行检查
+"let g:ale_lint_on_enter = 0
 " 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
-nmap sp <Plug>(ale_previous_wrap)
-nmap sn <Plug>(ale_next_wrap)
+"nmap sp <Plug>(ale_previous_wrap)
+"nmap sn <Plug>(ale_next_wrap)
 " <Leader>s触发/关闭语法检查
-nmap <Leader>s :ALEToggle<CR>
+"nmap <Leader>s :ALEToggle<CR>
 " <Leader>d查看错误或警告的详细信息
-nmap <Leader>d :ALEDetail<CR>
+"nmap <Leader>d :ALEDetail<CR>
 
 " 自动更新tags
-Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'ludovicchabant/vim-gutentags'
 
 " gutentags搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归 "
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+"let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
 " 配置 ctags 的参数 "
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+"let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+"let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+"let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 "----------------------------------------------------------------------
 

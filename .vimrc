@@ -25,8 +25,12 @@ noremap <C-l> <C-w>l
 " sudo to save
 cmap w!! w !sudo tee >/dev/null %
 
-" 使用 ,t 生成tag文件
-nmap <leader>t :!ctags -R --fields=+lS *
+" use ,t generate tags
+nmap <leader>t :!ctags-exuberant -R --fields=+lS *
+
+" use ctrl+p/n switch file buffer
+nmap <C-p> :bp<cr>
+nmap <C-n> :bn<cr>
 
 "===========================================================================
 filetype on             " 检测文件类型
@@ -94,4 +98,3 @@ nmap <silent> <F5> :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <silent> <F6> :cs find t <C-R>=expand("<cword>")<CR><CR>
 nmap <silent> <F7> :cs find c <C-R>=expand("<cword>")<CR><CR>
 """"""""""""""""""""""""""""""""""""""""""""
-
