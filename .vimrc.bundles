@@ -51,7 +51,8 @@ let g:ycm_show_diagnostics_ui = 0                    " 不显示语法检测
 let g:ycm_semantic_triggers = {
     \   'c':['->','.','re!\w{2}'],
     \   'cpp':['->', '.', 're!\w{2}'],
-    \   'python':[',',  're!(import\s+|from\s+(\w+\s+(import\s+(\w+,\s+)*)?)?)', 're!\w{2}'],
+    \   'python':['.', ',', 're!(import\s+|from\s+(\w+\s+(import\s+(\w+,\s+)*)?)?)', 're!\w{2}'],
+    \   'html': ['<', '"', '</', ' '],
     \}
 
 " nerdtree
@@ -59,7 +60,7 @@ Plugin 'scrooloose/nerdtree'
 let NERDChristmasTree = 0
 let NERDTreeWinSize = 25
 let NERDTreeChDirMode = 2
-let NERDTreeIgnore = ['\~$', '\.pyc$', '\.swp$', '\.o$', 'tags', 'cscope*']
+let NERDTreeIgnore = ['\~$', '\.pyc$', '\.swp$', '\.o$']
 let NERDTreeShowBookmarks = 1
 let NERDTreeWinPos = "left"
 " Automatically open a NERDTree if no files where specified
@@ -98,7 +99,7 @@ call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
-Plugin 'mbbill/echofunc'
+"Plugin 'mbbill/echofunc'
 
 " Underlines the word under the cursor
 Plugin 'itchyny/vim-cursorword'
@@ -106,9 +107,9 @@ Plugin 'itchyny/vim-cursorword'
 " a class outline viewer for Vim, like taglist
 Plugin 'majutsushi/tagbar'
 
-autocmd BufReadPost *.cpp,*.c,*.h,*.cc,*.cxx call tagbar#autoopen()
 let g:tagbar_ctags_bin = 'ctags'          " ctags程序的路径
 let g:tagbar_width = 30                   " 窗口宽度
+autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 map <F4> :Tagbar<CR>
 " 开启自动预览(随着光标在标签上的移动，顶部会出现一个实时的预览窗口)
 "let g:tagbar_autopreview = 1
@@ -119,13 +120,13 @@ map <F4> :Tagbar<CR>
 " 始终开启标志列
 "let g:ale_sign_column_always = 1
 "let g:ale_set_highlights = 1
-" 自定义error和warning图标
+"" 自定义error和warning图标
 "let g:ale_sign_error = '✗'
 "let g:ale_sign_warning = '⚡'
 "let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
 "let g:ale_echo_msg_error_str = 'E'
 "let g:ale_echo_msg_warning_str = 'W'
-"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+""let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 "let g:ale_lint_on_text_changed = 'normal'
 "let g:ale_lint_on_insert_leave = 1
@@ -133,14 +134,12 @@ map <F4> :Tagbar<CR>
 "let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 "let g:ale_c_cppcheck_options = ''
 "let g:ale_cpp_cppcheck_options = ''
-" 打开文件时不进行检查
-"let g:ale_lint_on_enter = 0
-" 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
+"" 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 "nmap sp <Plug>(ale_previous_wrap)
 "nmap sn <Plug>(ale_next_wrap)
-" <Leader>s触发/关闭语法检查
+"" <Leader>s触发/关闭语法检查
 "nmap <Leader>s :ALEToggle<CR>
-" <Leader>d查看错误或警告的详细信息
+"" <Leader>d查看错误或警告的详细信息
 "nmap <Leader>d :ALEDetail<CR>
 
 " 自动更新tags
@@ -154,6 +153,11 @@ map <F4> :Tagbar<CR>
 "let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 "----------------------------------------------------------------------
+
+" complete for javascript: use .tern-project config
+Plugin 'marijnh/tern_for_vim'
+"autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
+"autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 call vundle#end()            " required
 filetype plugin indent on    " required

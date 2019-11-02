@@ -22,15 +22,11 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" sudo to save
-cmap w!! w !sudo tee >/dev/null %
+" use ctrl+w sudo to save
+nmap <C-w> :w !sudo tee %<cr>
 
-" use ,t generate tags
-nmap <leader>t :!ctags-exuberant -R --fields=+lS *
-
-" use ctrl+p/n switch file buffer
-nmap <C-p> :bp<cr>
-nmap <C-n> :bn<cr>
+" 使用 ,t 生成tag文件
+nmap <leader>t :!ctags -R --fields=+lS *
 
 "===========================================================================
 filetype on             " 检测文件类型
@@ -46,7 +42,7 @@ set smartindent         " 设置智能缩进
 set ts=4                " 设置tab长度为4
 set shiftwidth=4
 set softtabstop=4
-set expandtab           " 使用空格替换tab
+"set expandtab           " 使用空格替换tab
 set foldmethod=manual   " 设置手动折叠
 
 set timeoutlen=100      " 解决O向上插入延迟问题
@@ -98,3 +94,4 @@ nmap <silent> <F5> :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <silent> <F6> :cs find t <C-R>=expand("<cword>")<CR><CR>
 nmap <silent> <F7> :cs find c <C-R>=expand("<cword>")<CR><CR>
 """"""""""""""""""""""""""""""""""""""""""""
+
