@@ -28,6 +28,10 @@ nmap <C-w> :w !sudo tee %<cr>
 " 使用 ,t 生成tag文件
 nmap <leader>t :!ctags -R --fields=+lS *
 
+" use ctrl+p/n switch file buffer
+nmap <C-p> :bp<cr>
+nmap <C-n> :bn<cr>
+
 "===========================================================================
 filetype on             " 检测文件类型
 filetype indent on      " 根据不同语言类型进行不同的缩进
