@@ -46,7 +46,7 @@ set smartindent         " 设置智能缩进
 set ts=4                " 设置tab长度为4
 set shiftwidth=4
 set softtabstop=4
-"set expandtab           " 使用空格替换tab
+set expandtab           " 使用空格替换tab
 set foldmethod=manual   " 设置手动折叠
 
 set timeoutlen=100      " 解决O向上插入延迟问题
@@ -59,7 +59,6 @@ set wildmode=list:longest  " 命令行补全
 set nocompatible        " 关闭与vi的兼容
 set nobackup            " 不创建备份文件
 set noswapfile          " 不生成临时文件
-set foldmethod=manual   " 设置手动折叠
 
 set clipboard=unnamed   " 使用系统剪切板
 
@@ -69,6 +68,8 @@ set clipboard=unnamed   " 使用系统剪切板
 
 " ARM汇编 .S 文件高亮显示
 au BufNewFile,BufRead *.S set filetype=masm
+
+au BufNewFile,BufRead *.bxrc set filetype=bash
 
 " 记住上次编辑和浏览位置
 if has("autocmd")
