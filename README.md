@@ -2,7 +2,7 @@
 **A lightweight vim configuration.**
 
 ## Screenshot
-![vim.png](https://img.caiyifan.cn/my_vim_config.png)
+![vim.png](https://img.caiyifan.cn/my_vim_config.jpg)
 
 ## Key-map 
 - ,w: save
