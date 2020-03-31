@@ -15,7 +15,7 @@ Plugin 'jiangmiao/auto-pairs'
 " 显示代码行尾的空格
 Plugin 'ntpeters/vim-better-whitespace'
 " 一键清理代码行尾的空格
-nnoremap c, :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap cc :%s/\s\+$//<cr>:let @/=''<CR>
 
 " 状态栏 airline
 Plugin 'vim-airline/vim-airline'
@@ -113,6 +113,9 @@ let g:tagbar_width = 30                   " 窗口宽度
 map <F4> :Tagbar<CR>
 " 开启自动预览(随着光标在标签上的移动，顶部会出现一个实时的预览窗口)
 "let g:tagbar_autopreview = 1
+
+Plugin 'easymotion/vim-easymotion'
+nmap ss <Plug>(easymotion-s2)
 
 " 动态语法检测
 "Plugin 'w0rp/ale'

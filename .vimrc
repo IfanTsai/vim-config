@@ -12,6 +12,16 @@ colorscheme 	space-vim-dark   " 主题
 " 将<leader>键映射为,
 let mapleader=","
 
+" 将jj 映射为esc
+inoremap jj <esc>
+
+" 使用 vv 选中当前行
+nnoremap vv ^vg_
+
+" 使用 Ctrl+a 将当前单词转成大写
+nmap <C-a> gUiwe
+imap <C-a> <esc>gUiwgi
+
 " 使用 ,w 直接保存
 inoremap <leader>w <Esc>:w<cr>
 noremap  <leader>w :w<cr>
@@ -23,14 +33,14 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " use ctrl+w sudo to save
-nmap <C-w> :w !sudo tee %<cr>
+nnoremap <C-w> :w !sudo tee %<cr>
 
 " 使用 ,t 生成tag文件
-nmap <leader>t :!ctags -R --fields=+lS *
+nnoremap <leader>t :!ctags -R --fields=+lS *
 
 " use ctrl+p/n switch file buffer
-nmap <C-p> :bp<cr>
-nmap <C-n> :bn<cr>
+nnoremap <C-p> :bp<cr>
+nnoremap <C-n> :bn<cr>
 
 "===========================================================================
 filetype on             " 检测文件类型
@@ -49,7 +59,7 @@ set softtabstop=4
 set expandtab           " 使用空格替换tab
 set foldmethod=manual   " 设置手动折叠
 
-set timeoutlen=100      " 解决O向上插入延迟问题
+"set timeoutlen=100     " 解决O向上插入延迟问题(开启后像jj这类快捷键可能会失效)
 set viminfo='100,<500   " 解决只能复制50行问题
 set completeopt=longest " 解决c++类中public，private格式问题
 
@@ -95,8 +105,8 @@ endif
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 " F5: 查找C语言符号  F6: 查找字符串 F7: 查找函数被调用
-nmap <silent> <F5> :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <silent> <F6> :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <silent> <F7> :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> <F5> :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> <F6> :cs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent> <F7> :cs find c <C-R>=expand("<cword>")<CR><CR>
 """"""""""""""""""""""""""""""""""""""""""""
 
