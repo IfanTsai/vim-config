@@ -69,6 +69,8 @@ set wildmode=list:longest  " 命令行补全
 set nocompatible        " 关闭与vi的兼容
 set nobackup            " 不创建备份文件
 set noswapfile          " 不生成临时文件
+set nowritebackup       " 编辑的时候不需要备份文件
+set noundofile          " 不创建撤销文件
 
 set clipboard=unnamed   " 使用系统剪切板
 
