@@ -164,5 +164,12 @@ Plugin 'marijnh/tern_for_vim'
 "autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 "autocmd FileType javascript setlocal omnifunc=tern#Complete
 
+Plugin 'vim-scripts/vim-auto-save'
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+
+" :GoInstallBinaries
+Plugin 'fatih/vim-go'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
